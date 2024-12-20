@@ -1,0 +1,60 @@
+@startuml
+skinparam rankdir LR
+skinparam component {
+  BackgroundColor LightBlue
+  BorderColor Black
+  ArrowColor Black
+}
+digraph Dependencies {
+  "junit:junit:4.13.2" [shape=component];
+  "com.github.stephenc.wagon:wagon-gitsite:0.4.1" [shape=component];
+  "org.apache.maven.wagon:wagon-provider-api:1.0" [shape=component];
+  "org.apache.maven.wagon:wagon-provider-test:1.0" [shape=component];
+  "org.apache.maven.wagon:wagon-ssh-common-test:1.0" [shape=component];
+  "org.apache.maven.wagon:wagon-ssh-common:1.0" [shape=component];
+  "junit:junit:3.8.1" [shape=component];
+  "org.codehaus.plexus:plexus-interactivity-api:1.0-alpha-6" [shape=component];
+  "org.codehaus.plexus:plexus-container-default:1.5.5" [shape=component];
+  "org.codehaus.plexus:plexus-utils:3.0" [shape=component];
+  "org.apache.maven.scm:maven-scm-api:1.5" [shape=component];
+  "org.apache.maven.scm:maven-scm-manager-plexus:1.5" [shape=component];
+  "org.apache.maven.scm:maven-scm-test:1.5" [shape=component];
+  "org.apache.maven.scm:maven-scm-provider-gitexe:1.5" [shape=component];
+  "org.apache.maven.scm:maven-scm-provider-git-commons:1.5" [shape=component];
+  "net.sf.docbook:docbook-xml:5.0-all" [shape=component];
+  "org.apache.maven.doxia:doxia-module-markdown:1.5" [shape=component];
+  "org.pegdown:pegdown:1.2.1" [shape=component];
+  "junit:junit:4.13.2" -> "org.hamcrest:hamcrest-core:${hamcrestVersion}";
+  "junit:junit:4.13.2" -> "org.hamcrest:hamcrest-library:${hamcrestVersion}";
+  "junit:junit:4.13.2" -> "org.apache.maven.surefire:surefire-junit47:${surefireVersion}";
+  "junit:junit:4.13.2" -> "com.github.stephenc.wagon:wagon-gitsite:0.4.1";
+  "junit:junit:4.13.2" -> "org.apache.maven.doxia:doxia-module-markdown:1.5";
+  "com.github.stephenc.wagon:wagon-gitsite:0.4.1" -> "org.apache.maven.wagon:wagon-provider-api:1.0";
+  "com.github.stephenc.wagon:wagon-gitsite:0.4.1" -> "org.apache.maven.wagon:wagon-provider-test:1.0";
+  "com.github.stephenc.wagon:wagon-gitsite:0.4.1" -> "org.apache.maven.wagon:wagon-ssh-common-test:1.0";
+  "com.github.stephenc.wagon:wagon-gitsite:0.4.1" -> "org.apache.maven.wagon:wagon-ssh-common:1.0";
+  "com.github.stephenc.wagon:wagon-gitsite:0.4.1" -> "junit:junit:3.8.1";
+  "com.github.stephenc.wagon:wagon-gitsite:0.4.1" -> "org.codehaus.plexus:plexus-interactivity-api:1.0-alpha-6";
+  "com.github.stephenc.wagon:wagon-gitsite:0.4.1" -> "org.codehaus.plexus:plexus-container-default:1.5.5";
+  "com.github.stephenc.wagon:wagon-gitsite:0.4.1" -> "org.codehaus.plexus:plexus-utils:3.0";
+  "com.github.stephenc.wagon:wagon-gitsite:0.4.1" -> "org.apache.maven.scm:maven-scm-api:1.5";
+  "com.github.stephenc.wagon:wagon-gitsite:0.4.1" -> "org.apache.maven.scm:maven-scm-manager-plexus:1.5";
+  "com.github.stephenc.wagon:wagon-gitsite:0.4.1" -> "org.apache.maven.scm:maven-scm-test:1.5";
+  "com.github.stephenc.wagon:wagon-gitsite:0.4.1" -> "org.apache.maven.scm:maven-scm-provider-gitexe:1.5";
+  "com.github.stephenc.wagon:wagon-gitsite:0.4.1" -> "org.apache.maven.scm:maven-scm-provider-git-commons:1.5";
+  "com.github.stephenc.wagon:wagon-gitsite:0.4.1" -> "org.apache.maven.wagon:wagon-provider-api:1.0";
+  "com.github.stephenc.wagon:wagon-gitsite:0.4.1" -> "org.apache.maven.wagon:wagon-provider-test:1.0";
+  "com.github.stephenc.wagon:wagon-gitsite:0.4.1" -> "com.github.stephenc.wagon:wagon-gitsite:${project.version}";
+  "com.github.stephenc.wagon:wagon-gitsite:0.4.1" -> "net.sf.docbook:docbook-xml:5.0-all";
+  "org.apache.maven.wagon:wagon-provider-api:1.0" -> "easymock:easymock:1.2_Java1.3";
+  "org.apache.maven.wagon:wagon-provider-test:1.0" -> "easymock:easymock:1.2_Java1.3";
+  "org.apache.maven.wagon:wagon-provider-test:1.0" -> "org.mortbay.jetty:jetty:6.1.11";
+  "org.apache.maven.wagon:wagon-ssh-common-test:1.0" -> "junit:junit:3.8.1";
+  "org.codehaus.plexus:plexus-interactivity-api:1.0-alpha-6" -> "org.codehaus.plexus:plexus-utils:1.4";
+  "org.codehaus.plexus:plexus-utils:3.0" -> "junit:junit:3.8.2";
+  "org.apache.maven.doxia:doxia-module-markdown:1.5" -> "org.pegdown:pegdown:1.2.1";
+  "org.pegdown:pegdown:1.2.1" -> "org.parboiled:parboiled-java:1.1.4";
+  "org.pegdown:pegdown:1.2.1" -> "net.sf.jtidy:jtidy:r938";
+  "org.pegdown:pegdown:1.2.1" -> "org.specs2:specs2_2.9.2:1.12.2";
+}
+@enduml
